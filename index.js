@@ -1,0 +1,54 @@
+//Servidor 
+
+const express = require("express");
+const app = express();
+const handlebars = require('express-handlebars');
+const bodyParser = require('body-parser');
+const Post = require('./models/Post');
+//Variáveis que fazem a requisição das determinadas funcionalidades 
+
+//Carregando o cabeçalho do html em outras páginas 
+
+app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
+//Define a página principal onde as demais serão carregadas
+
+app.set('view engine', 'handlebars');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+//Rotas
+
+//Rota Principal
+app.get('/', function(req, res) {
+    res.render('home');
+});
+
+//Rota para o cadastro
+app.get('/cad', function(req, res) {
+    res.render('formulario');
+});
+
+//Fazendo a inserção no banco
+app.post('/add', function(req, res) {
+
+    Post.create({
+
+        titulo: req.body.titulo,
+        conteudo: req.body.conteudo
+
+    }).then(function() {
+
+        //redirecionamento para home com a barra
+        res.redirect('/')
+
+    }).catch(function(erro) {
+
+        res.send(' Houve um erro: ' + erro);
+        
+    });
+
+});
+
+app.listen(8081, function() {
+    console.log("Servidor rodando na porta 8081!")
+});
