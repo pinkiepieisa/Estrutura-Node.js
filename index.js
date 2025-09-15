@@ -20,7 +20,13 @@ app.use(bodyParser.json());
 
 //Rota Principal
 app.get('/', function(req, res) {
-    res.render('home');
+    //O then passa os posts para nossa view
+    Post.findAll().then(function(posts){
+        //var nposts = JSON.parse(JSON.stringify(posts))
+        //res.render('home', {posts: nposts})
+        posts =posts.map((post)=>{return post.toJSON()});
+        res.render('home', {posts: posts})
+    });
 });
 
 //Rota para o cadastro

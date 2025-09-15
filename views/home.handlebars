@@ -1,1 +1,13 @@
 <h1> Lista de Postagens: </h1>
+
+{{#each  posts}}
+    <h1> Id: {{id}} </h1>
+    <h2> Título: {{titulo}} </h2>
+    <p> Contéudo: {{conteudo}} </p>
+    <p> Data: {{createdAt}} </p>
+    <a href="/deletar/{{id}}"> <button> Deletar </button> </a>
+    <br> <br>
+    <a href="/alterar/{{id}}"> <button> Alterar </button> </a>
+    <br> <br>
+{{/each}}
+<!-- Esse comando significa que cada postagem irá exibir título e contteúdo, pois Post.findAll() retorna um Array-->
