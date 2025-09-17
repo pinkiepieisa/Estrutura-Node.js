@@ -66,6 +66,28 @@ app.get('/deletar/:id', function(req, res) {
     });
 });
 
+//Alteração dos dados
+app.get('/alterar/:id', function(req, res) {
+    Post.findAll({where: {'id': req.params.id}}).then(function(posts){
+        //var nposts = JSON.parse(JSON.stringify(posts))
+        //res.render('home', {posts: nposts})
+        posts = posts.map((post) => {return post.toJSON()});
+        res.render('alterar', {posts: posts});
+    });
+});
+
+app.post('/update', function(req, res) {
+    Post.update({
+        titulo: req.body.titulo,
+        conteudo: req.body.conteudo},
+        {where: {id: req.body.id}
+    }).then(function() {
+        res.redirect('/');
+    }).catch(function(erro) {
+        res.send("Esta postagem não existe " + erro);
+    });
+});
+
 app.listen(8081, function() {
     console.log("Servidor rodando na porta 8081!")
 });

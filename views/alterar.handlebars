@@ -1,0 +1,26 @@
+<!--Formulário para a alteração dos dados-->
+<form action="/update" method="post">
+
+{{#each posts}}
+
+<p> Código: </p>
+<input type="text" name="id" value="{{id}}" readonly="true">
+
+<br> 
+
+<p> Título: </p>
+<input type="text" name="titulo" value="{{titulo}}">
+
+<br>
+
+<p> Contéudo: </p>
+<textarea name="conteudo"> {{conteudo}} </textarea>
+
+<br> <br>
+
+<input type="submit" value="Alterar">
+<hr>
+
+{{/each}}
+
+</form>
