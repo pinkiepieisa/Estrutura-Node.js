@@ -21,3 +21,98 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
+
+/* Para o teste dos estáticos */
+
+body {
+
+    display: grid; /* Ativa o Grid Layout */
+    grid-template-rows: auto 1fr auto; /* Define as linhas do grid */
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+    margin: 0; /* Remove as margens externas */
+    font-family: Arial, Helvetica, sans-serif; /* Define a fonte geral */
+
+}
+
+header {
+
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+header nav ul {
+
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0;
+    margin: 1rem 0 0;
+
+}
+
+header nav ul li a {
+
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.container {
+
+    display: grid; /* ativa o grid layout */
+    grid-template-columns: 1fr 3fr; /* Define duas colunas: menu conteúdo */
+    gap: 2rem; /* Define o espaçamento entre as colunas */
+    padding: 2rem; /* Adiciona um espaçamento interno nas bordas da área principal */
+
+}
+
+.menu {
+
+    background-color: #f4f4f4; /* Cor do fundo clara */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+
+}
+
+.menu ul {
+
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o espaçamento padrão da lista */
+
+}
+
+.menu ul li {
+
+    margin-bottom:  1rem; /* Espaçamento entre os itens do menu */
+
+}
+
+.menu ul li a {
+
+    color: #333; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: bold; /* Deixa o texto em negrito */
+
+}
+
+.content {
+
+    background-color: #fff; /* Fundo branco */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 1rem; /* Adiciona uma sombra suave */
+
+}
+
+footer {
+
+    background-color: #333; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    text-align: center; /* Centraliza o texto */
+    padding: 1rem; /* Espaçamento interno */
+
+}
