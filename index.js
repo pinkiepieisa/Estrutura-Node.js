@@ -5,6 +5,7 @@ const app = express();
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Post = require('./models/Post');
+const { where } = require("sequelize");
 //Variáveis que fazem a requisição das determinadas funcionalidades 
 
 //Carregando o cabeçalho do html em outras páginas 
@@ -53,6 +54,16 @@ app.post('/add', function(req, res) {
         
     });
 
+});
+
+//Exclusão de dados
+app.get('/deletar/:id', function(req, res) {
+
+    Post.destroy({where: {'id': req.params.id}}).then(function() {
+        res.redirect('/');
+    }).catch(function(erro) { //Só será acionado caso haja um erro
+        res.send("Esta postagem não existe!");
+    });
 });
 
 app.listen(8081, function() {
