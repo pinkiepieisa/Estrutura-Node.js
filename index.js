@@ -19,6 +19,10 @@ app.use(bodyParser.json());
 
 //Rotas
 
+app.use("/abacaxi", express.static("public/css"));
+app.use("/imagens", express.static("public/img"));
+
+
 //Rota Principal
 app.get('/', function(req, res) {
     //O then passa os posts para nossa view

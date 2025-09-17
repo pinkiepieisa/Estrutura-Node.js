@@ -1,0 +1,23 @@
+.botaoVerde {
+
+    border-radius: 15px;
+    background-color: greenyellow;
+    color: aliceblue;
+    font-weight: bolder;
+
+}
+
+.imagem {
+
+    width: 100px;
+    height: 100px;
+
+}
+
+.hometitulo {
+
+    color: aqua;
+    background-color: cornflowerblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
