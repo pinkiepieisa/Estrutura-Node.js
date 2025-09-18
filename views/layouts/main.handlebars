@@ -10,9 +10,31 @@
 </head>
 
 <body>
+    {{> header}}
 
-{{{body}}} 
-<!--Onde todas as rotas irão passar-->
+    <div class="container">
+
+        <aside class="menu">
+
+            <ul>
+
+                <li> <a href="/"> Home </a> </li>
+                <li> <a href="/cad"> Novo post </a> </li>
+
+            </ul>
+
+        </aside>
+
+        <section class="content">
+
+            {{{body}}} 
+            <!--Onde todas as rotas irão passar-->
+
+        </section>
+
+    </div>
+
+    {{> footer}}
     
 </body>
 
