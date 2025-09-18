@@ -6,14 +6,19 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Post = require('./models/Post');
 const { where } = require("sequelize");
+const path = require('path');
 //Variáveis que fazem a requisição das determinadas funcionalidades 
 
 //Carregando o cabeçalho do html em outras páginas 
 
-app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
+app.engine('handlebars', handlebars.engine({
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, 'views/layouts'),
+    partialsDir: path.join(__dirname, 'views/partials')
+    }));
 //Define a página principal onde as demais serão carregadas
 
-app.set('view engine', 'handlebars');
+app.set('view engine', 'handlebars'); 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
